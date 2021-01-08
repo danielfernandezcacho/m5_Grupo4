@@ -20,6 +20,9 @@ namespace m5_Grupo4
 
         }
    
+        /// <summary>
+        /// Metodo para pedir datos por consola al usuario y rellenar los datos.
+        /// </summary>
         public void Pedir()
         {
             Boolean numeroincorrecto = true;

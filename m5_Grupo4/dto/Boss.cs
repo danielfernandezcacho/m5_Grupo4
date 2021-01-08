@@ -2,12 +2,14 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace m5_Grupo4
+namespace m5_Grupo4.dto
 {
-    class Junior : Empleat
+
+    class Boss : Empleat
     {
-        private const string CATEGORIA = "Junior";
-        public Junior() : base()
+        private const string CATEGORIA = "Boss";
+
+        public Boss() : base()
         {
             setCategoria(CATEGORIA);
         }

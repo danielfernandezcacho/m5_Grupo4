@@ -6,10 +6,10 @@ namespace m5_Grupo4
 {
     class Senior : Empleat
     {
-        private const double PORCENTAGE = 0.05;
+        private const string CATEGORIA = "Senior";
         public Senior() : base()
         {
-            reducir_sueldo(PORCENTAGE);
+            setCategoria(CATEGORIA);
         }
 
     }

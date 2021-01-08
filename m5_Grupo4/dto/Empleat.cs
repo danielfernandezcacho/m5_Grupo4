@@ -6,9 +6,12 @@ namespace m5_Grupo4
 {
     class Empleat
     {
-        string tipoEmpleado = "";
         double sueldo = 0;
-
+        double sueldoMensualBruto = 0;
+        double sueldoMensualNeto = 0;
+        double sueldoAnualBruto = 0;
+        double sueldoAnualNeto = 0;
+        string categoria = "";
         public Empleat()
         {
 
@@ -16,28 +19,40 @@ namespace m5_Grupo4
 
         private void AjustarSueldo()
         {
-            if (tipoEmpleado == "Manager")
+            if (categoria == "Manager")
             {
                 sueldo *= 1.1; // Se aumenta el sueldo un 10% 
-               
+
             }
-            else if (tipoEmpleado == "Boss")
+            else if (categoria == "Boss")
             {
                 sueldo *= 1.5; // Se aumenta el sueldo un 50% 
 
             }
-            else if (tipoEmpleado == "Employee")
+            else if (categoria == "Employee")
             {
                 sueldo *= 0.85; // Se reduce el sueldo un 15% 
 
             }
-            else if (tipoEmpleado == "Volunteer")
+            else if (categoria == "Volunteer")
             {
                 sueldo *= 0; // Se reduce el sueldo un 100% 
             }
+            else if (categoria == "Junior")
+            {
+                sueldo *= 0.85; // Se reduce el sueldo un 15% 
+            }
+            else if (categoria == "Mid")
+            {
+                sueldo *= 0.90; // Se reduce el sueldo un 10% 
+            }
+            else if (categoria == "Senior")
+            {
+                sueldo *= 0.95; // Se reduce el sueldo un 5% 
+            }
             else
             {
-                Console.WriteLine("Has introducido {0} que es un tipo de empleado erroneo.", tipoEmpleado);
+                Console.WriteLine("Has introducido {0} que es una categoria erronea.", categoria);
             }
         }
 
@@ -45,34 +60,38 @@ namespace m5_Grupo4
         {
             try
             {
-                Console.WriteLine("Introduce tu tipo de empleado:");
-                tipoEmpleado = Console.ReadLine();
-                Console.WriteLine("Introduce el sueldo:");
-                sueldo = Convert.ToDouble(Console.ReadLine());
+                Console.WriteLine("Introduce el sueldo Mensual bruto:");
+                sueldoMensualBruto = Convert.ToDouble(Console.ReadLine());
 
-                if (tipoEmpleado == "boss" && sueldo <= 8000)
+                AjustarSueldo();
+
+                if (categoria == "Boss" && sueldo <= 8000)
                 {
                     throw new sueldo_incorrecto("El sueldo es inferior a 8000");
                 }
-                else if (tipoEmpleado == "manager" && sueldo >= 5000 && sueldo<= 3000)
+                else if (categoria == "Manager" && sueldo >= 5000 || categoria == "Manager"  && sueldo<= 3000)
                 {
                     throw new sueldo_incorrecto("El sueldo no esta en entre 3000 y 5000");
+                }       
+                else if (categoria == "volunteer" && sueldo > 300 )
+                {
+                    throw new sueldo_incorrecto("El sueldo es superior a 300");
                 }
-                else if (tipoEmpleado == "Senior" && sueldo >= 4000 && sueldo <= 2700)
+                else if (categoria == "volunteer" && sueldo <= 300 && sueldo > 0)
+                {
+                    Console.WriteLine("El sueldo del volunteer de {0} proviene de una ayuda del estado.", sueldo);
+                }
+                else if (categoria == "Senior" && sueldo >= 4000 || categoria == "Senior" && sueldo <= 2700)
                 {
                     throw new sueldo_incorrecto("El sueldo no esta en entre 2700 y 4000");
                 }
-                else if (tipoEmpleado == "mid" && sueldo >= 2500 && sueldo <= 1800)
+                else if (categoria == "Mid" && sueldo >= 2500 || categoria == "Mid" && sueldo <= 1800)
                 {
                     throw new sueldo_incorrecto("El sueldo no esta en entre 1800 y 2500");
                 }
-                else if (tipoEmpleado == "Junior" && sueldo >= 2500 && sueldo <= 900)
+                else if (categoria == "Junior" && sueldo >= 2500 || categoria == "Junior" && sueldo <= 900)
                 {
                     throw new sueldo_incorrecto("El sueldo no esta en entre 900 y 1600");
-                }
-                else if (tipoEmpleado == "volunteer" && sueldo > 0)
-                {
-                    throw new sueldo_incorrecto("El sueldo es superior a 0");
                 }
             }
             catch(Exception e)
@@ -81,16 +100,11 @@ namespace m5_Grupo4
                 Console.WriteLine("La excepción  {0}  acaba de saltar. ", e.Message);
             }
 
-            AjustarSueldo();
-
         }
 
-        public void reducir_sueldo(double porcentage)
+        public void setCategoria(string categoria)
         {
-
-            sueldo = sueldo - sueldo * porcentage;
-        
-        
+            this.categoria = categoria;
         }
     }
 }

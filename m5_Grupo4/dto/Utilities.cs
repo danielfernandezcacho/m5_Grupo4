@@ -40,7 +40,7 @@ namespace m5_Grupo4
             ejemplo7.Pedir();
 
             EmetreBonusPlantilla(arrayObjetos);
-
+     
         }
         public  void EmetreBonusPlantilla(object[] arrayObjetos)
         {

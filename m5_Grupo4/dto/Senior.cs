@@ -3,9 +3,14 @@ using System.Collections.Generic;
 using System.Text;
 
 namespace m5_Grupo4
-namespace m5_Grupo4.dto
 {
-    class Senior
+    class Senior : Empleat
     {
+        private const double PORCENTAGE = 0.05;
+        public Senior() : base()
+        {
+            reducir_sueldo(PORCENTAGE);
+        }
+
     }
 }

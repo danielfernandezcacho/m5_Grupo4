@@ -6,10 +6,10 @@ namespace m5_Grupo4
 {
     class Mid : Empleat
     {
-        private const double PORCENTAGE = 0.1;
+        private const string CATEGORIA = "Mid";
         public Mid():base()
         {
-            reducir_sueldo(PORCENTAGE);
+            setCategoria(CATEGORIA);
         }
 
     }

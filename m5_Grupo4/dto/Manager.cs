@@ -4,10 +4,12 @@ using System.Text;
 
 namespace m5_Grupo4
 {
-    class Junior : Empleat
+
+    class Manager : Empleat
     {
-        private const string CATEGORIA = "Junior";
-        public Junior() : base()
+        private const string CATEGORIA = "Manager";
+
+        public Manager() : base()
         {
             setCategoria(CATEGORIA);
         }

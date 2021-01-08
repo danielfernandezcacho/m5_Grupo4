@@ -31,7 +31,12 @@ namespace m5_Grupo4
 
                 sueldoAnualNeto = CalcularSueldoNeto(sueldoAnualBruto, categoria);
 
-                sueldo = AjustarSueldo(sueldoMensualNeto); //Obtenemos el sueldo mensual neto ajustado para cada categoria
+                sueldoAnualBruto = AjustarSueldo(sueldoAnualBruto);
+                sueldoMensualBruto = AjustarSueldo(sueldoMensualBruto);
+                sueldoAnualNeto = AjustarSueldo(sueldoAnualNeto);
+                sueldoMensualNeto = AjustarSueldo(sueldoMensualNeto);
+
+                sueldo = sueldoMensualNeto; //Obtenemos el sueldo mensual neto ajustado para cada categoria
 
                 if (categoria == "Boss" && sueldo <= 8000)
                 {
@@ -41,11 +46,11 @@ namespace m5_Grupo4
                 {
                     throw new sueldo_incorrecto("El sueldo no esta en entre 3000 y 5000");
                 }       
-                else if (categoria == "volunteer" && sueldo > 300 )
+                else if (categoria == "Volunteer" && sueldo > 300 )
                 {
                     throw new sueldo_incorrecto("El sueldo es superior a 300");
                 }
-                else if (categoria == "volunteer" && sueldo <= 300 && sueldo > 0)
+                else if (categoria == "Volunteer" && sueldo <= 300 && sueldo > 0)
                 {
                     Console.WriteLine("El sueldo del volunteer de {0} proviene de una ayuda del estado.", sueldo);
                 }
@@ -105,6 +110,10 @@ namespace m5_Grupo4
             {
                 result = sueldoBruto - sueldoBruto * 0.02;
             }
+            else if(categoria == "Volunteer")
+            {
+                result = sueldoBruto - sueldoBruto * 0.00;
+            }
             return result;
         }
 
@@ -129,7 +138,7 @@ namespace m5_Grupo4
             }
             else if (categoria == "Volunteer")
             {
-                sueldo *= 0; // Se reduce el sueldo un 100% 
+                sueldo *= 1; // Milestone3: Se mantiene el sueldo igual ya que pueden recibir ayudas de hasta 300€
             }
             else if (categoria == "Junior")
             {

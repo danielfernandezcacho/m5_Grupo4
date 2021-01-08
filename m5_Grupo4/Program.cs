@@ -7,7 +7,7 @@ namespace m5_Grupo4
         static void Main(string[] args)
         {
             object[] arrayObjetos = new object[7];
-      
+
             Boss ejemplo1 = new Boss();
             arrayObjetos[0] = ejemplo1;
             ejemplo1.Pedir();
@@ -44,7 +44,43 @@ namespace m5_Grupo4
         {
             foreach(object objeto in arrayObjetos)
             {
+                string tipoObjeto = objeto.GetType().Name;
 
+                if(tipoObjeto == "Boss")
+                {
+                    Boss ejemplo = (Boss)objeto;
+                    ejemplo.BonoSalarial();
+                }
+                else if(tipoObjeto == "Manager")
+                {
+                    Manager ejemplo = (Manager)objeto;
+                    ejemplo.BonoSalarial();
+                }
+                else if (tipoObjeto == "Employee")
+                {
+                    Employee ejemplo = (Employee)objeto;
+                    ejemplo.BonoSalarial();
+                }
+                else if (tipoObjeto == "Volunteer")
+                {
+                    Volunteer ejemplo = (Volunteer)objeto;
+                    
+                }
+                else if (tipoObjeto == "Senior")
+                {
+                    Senior ejemplo = (Senior)objeto;
+                    ejemplo.BonoSalarial();
+                }
+                else if (tipoObjeto == "Mid")
+                {
+                    Mid ejemplo = (Mid)objeto;
+                    ejemplo.BonoSalarial();
+                }
+                else if (tipoObjeto == "Junior")
+                {
+                    Junior ejemplo = (Junior)objeto;
+                    ejemplo.BonoSalarial();
+                }
             }
         }
     }

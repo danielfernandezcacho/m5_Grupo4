@@ -19,8 +19,7 @@ namespace m5_Grupo4
         {
 
         }
-
-      
+   
         public void Pedir()
         {
             try
@@ -80,8 +79,6 @@ namespace m5_Grupo4
             }
 
         }
-
-
 
         public void BonoSalarial()
         {
@@ -169,5 +166,10 @@ namespace m5_Grupo4
 
         }
 
+
+        public override string ToString()
+        {
+            return string.Format("El empleado {0} tiene un sueldo anual bruto de {1} euros en su categoria como {2] en la empresa.", nombre, sueldoAnualBruto, categoria);
+        }
     }
 }

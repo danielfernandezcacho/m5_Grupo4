@@ -17,45 +17,7 @@ namespace m5_Grupo4
 
         }
 
-        private void AjustarSueldo()
-        {
-            if (categoria == "Manager")
-            {
-                sueldo *= 1.1; // Se aumenta el sueldo un 10% 
-
-            }
-            else if (categoria == "Boss")
-            {
-                sueldo *= 1.5; // Se aumenta el sueldo un 50% 
-
-            }
-            else if (categoria == "Employee")
-            {
-                sueldo *= 0.85; // Se reduce el sueldo un 15% 
-
-            }
-            else if (categoria == "Volunteer")
-            {
-                sueldo *= 0; // Se reduce el sueldo un 100% 
-            }
-            else if (categoria == "Junior")
-            {
-                sueldo *= 0.85; // Se reduce el sueldo un 15% 
-            }
-            else if (categoria == "Mid")
-            {
-                sueldo *= 0.90; // Se reduce el sueldo un 10% 
-            }
-            else if (categoria == "Senior")
-            {
-                sueldo *= 0.95; // Se reduce el sueldo un 5% 
-            }
-            else
-            {
-                Console.WriteLine("Has introducido {0} que es una categoria erronea.", categoria);
-            }
-        }
-
+      
         public void Pedir()
         {
             try
@@ -63,7 +25,13 @@ namespace m5_Grupo4
                 Console.WriteLine("Introduce el sueldo Mensual bruto:");
                 sueldoMensualBruto = Convert.ToDouble(Console.ReadLine());
 
-                AjustarSueldo();
+                sueldoMensualNeto = CalcularSueldoNeto(sueldoMensualBruto,categoria);
+
+                sueldoAnualBruto = sueldoMensualBruto * 12;
+
+                sueldoAnualNeto = CalcularSueldoNeto(sueldoAnualBruto, categoria);
+
+                sueldo = AjustarSueldo(sueldoMensualNeto); //Obtenemos el sueldo mensual neto ajustado para cada categoria
 
                 if (categoria == "Boss" && sueldo <= 8000)
                 {
@@ -102,9 +70,87 @@ namespace m5_Grupo4
 
         }
 
+        public void BonoSalarial()
+        {
+            sueldoMensualNeto *= 1.1;
+            sueldoAnualBruto *= 1.1;
+            sueldoMensualBruto *= 1.1;
+            sueldoAnualNeto *= 1.1;
+        }
         public void setCategoria(string categoria)
         {
             this.categoria = categoria;
         }
+        private double CalcularSueldoNeto(double sueldoBruto, string categoria)
+        {
+            double result = 0;
+
+            if (categoria == "Boss")
+            {
+                result = sueldoBruto - sueldoBruto * 0.32;
+            }
+            else if(categoria == "Manager")
+            {
+                result = sueldoBruto - sueldoBruto * 0.26;
+            }
+            else if (categoria == "Senior")
+            {
+                result = sueldoBruto - sueldoBruto * 0.24;
+            }
+            else if (categoria == "Mid")
+            {
+                result = sueldoBruto - sueldoBruto * 0.15;
+            }
+            else if (categoria == "Junior")
+            {
+                result = sueldoBruto - sueldoBruto * 0.02;
+            }
+            return result;
+        }
+
+        private double AjustarSueldo(double sueldoACalcular)
+        {
+            double sueldo = sueldoACalcular;
+
+            if (categoria == "Manager")
+            {
+                sueldo *= 1.1; // Se aumenta el sueldo un 10% 
+
+            }
+            else if (categoria == "Boss")
+            {
+                sueldo *= 1.5; // Se aumenta el sueldo un 50% 
+
+            }
+            else if (categoria == "Employee")
+            {
+                sueldo *= 0.85; // Se reduce el sueldo un 15% 
+
+            }
+            else if (categoria == "Volunteer")
+            {
+                sueldo *= 0; // Se reduce el sueldo un 100% 
+            }
+            else if (categoria == "Junior")
+            {
+                sueldo *= 0.85; // Se reduce el sueldo un 15% 
+            }
+            else if (categoria == "Mid")
+            {
+                sueldo *= 0.90; // Se reduce el sueldo un 10% 
+            }
+            else if (categoria == "Senior")
+            {
+                sueldo *= 0.95; // Se reduce el sueldo un 5% 
+            }
+            else
+            {
+                Console.WriteLine("Has introducido {0} que es una categoria erronea.", categoria);
+            }
+
+            return sueldo;
+
+        }
+
     }
 }

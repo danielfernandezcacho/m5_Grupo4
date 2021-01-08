@@ -6,7 +6,7 @@ namespace m5_Grupo4
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");sbyte
+            Console.WriteLine("Hello World!"); 
         }
     }
 }

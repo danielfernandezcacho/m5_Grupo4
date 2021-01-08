@@ -6,7 +6,9 @@ namespace m5_Grupo4
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");dw
+            Empleat ejemplo1 = new Empleat();
+
+            ejemplo1.Pedir();
         }
     }
 }

@@ -6,7 +6,10 @@ namespace m5_Grupo4
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            Utilities ejecucion = new Utilities();
+            ejecucion.EjecutarPrograma();
+            
         }
+
     }
 }

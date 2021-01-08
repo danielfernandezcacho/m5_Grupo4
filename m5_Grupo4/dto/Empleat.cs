@@ -12,6 +12,9 @@ namespace m5_Grupo4
         double sueldoAnualBruto = 0;
         double sueldoAnualNeto = 0;
         string categoria = "";
+
+        string nombre = "";
+
         public Empleat()
         {
 
@@ -22,6 +25,9 @@ namespace m5_Grupo4
         {
             try
             {
+                Console.WriteLine("Introduce el nombre del empleado de la categoria {0}:", categoria);
+                nombre = Console.ReadLine();
+
                 Console.WriteLine("Introduce el sueldo Mensual bruto:");
                 sueldoMensualBruto = Convert.ToDouble(Console.ReadLine());
 
@@ -39,7 +45,7 @@ namespace m5_Grupo4
                 sueldo = sueldoMensualNeto; //Obtenemos el sueldo mensual neto ajustado para cada categoria
 
                 if (categoria == "Boss" && sueldo <= 8000)
-                {
+                {                    
                     throw new sueldo_incorrecto("El sueldo es inferior a 8000");
                 }
                 else if (categoria == "Manager" && sueldo >= 5000 || categoria == "Manager"  && sueldo<= 3000)
@@ -74,6 +80,8 @@ namespace m5_Grupo4
             }
 
         }
+
+
 
         public void BonoSalarial()
         {

@@ -63,8 +63,7 @@ namespace m5_Grupo4
                 }
                 else if (tipoObjeto == "Volunteer")
                 {
-                    Volunteer ejemplo = (Volunteer)objeto;
-                    
+                    Volunteer ejemplo = (Volunteer)objeto;                   
                 }
                 else if (tipoObjeto == "Senior")
                 {

@@ -6,7 +6,7 @@ namespace m5_Grupo4
     {
         static void Main(string[] args)
         {
-            Utilities ejecucion = new Utilities();
+            Utilities ejecucion = new Utilities(); // Objeto de la clase utilities para lanzar el programa.
             ejecucion.EjecutarPrograma();
             
         }

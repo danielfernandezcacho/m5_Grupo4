@@ -7,6 +7,9 @@ namespace m5_Grupo4
     class Utilities
     {
 
+        /// <summary>
+        /// Método que crea los objetos de ejmplo y ejecuta la acción de pedir información al usuario por consola
+        /// </summary>
         public void EjecutarPrograma()
         {
             object[] arrayObjetos = new object[7];
@@ -42,6 +45,11 @@ namespace m5_Grupo4
             EmetreBonusPlantilla(arrayObjetos);
      
         }
+
+        /// <summary>
+        /// Método que emite el bonus salarial a la plantilla almacenada en el array de objetos pasado por parámetro.
+        /// </summary>
+        /// <param name="arrayObjetos"></param>
         public  void EmetreBonusPlantilla(object[] arrayObjetos)
         {
             foreach (object objeto in arrayObjetos)

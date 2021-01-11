@@ -6,21 +6,26 @@ namespace m5_Grupo4
 {
     class Empleat
     {
+        //Atributos
         double sueldo = 0;
         double sueldoMensualBruto = 0;
         double sueldoMensualNeto = 0;
         double sueldoAnualBruto = 0;
         double sueldoAnualNeto = 0;
         string categoria = "";
-
         string nombre = "";
 
+        /// <summary>
+        /// Constructor
+        /// </summary>
         public Empleat()
         {
 
         }
-
-      
+   
+        /// <summary>
+        /// Metodo para pedir datos por consola al usuario y rellenar los datos.
+        /// </summary>
         public void Pedir()
         {
             Boolean numeroincorrecto = true;
@@ -89,8 +94,9 @@ namespace m5_Grupo4
             }
         }
 
-
-
+        /// <summary>
+        /// Método que augmenta en 10% el sueldo del empleado.
+        /// </summary>
         public void BonoSalarial()
         {
             sueldoMensualNeto *= 1.1;
@@ -98,10 +104,21 @@ namespace m5_Grupo4
             sueldoMensualBruto *= 1.1;
             sueldoAnualNeto *= 1.1;
         }
+        /// <summary>
+        /// Setter del atributo categoria
+        /// </summary>
+        /// <param name="categoria"></param>
         public void setCategoria(string categoria)
         {
             this.categoria = categoria;
         }
+
+        /// <summary>
+        /// Método que calcula el sueldo neto a partir del sueldo bruto y de la categoria.
+        /// </summary>
+        /// <param name="sueldoBruto"></param>
+        /// <param name="categoria"></param>
+        /// <returns></returns>
         private double CalcularSueldoNeto(double sueldoBruto, string categoria)
         {
             double result = 0;
@@ -133,6 +150,12 @@ namespace m5_Grupo4
             return result;
         }
 
+
+        /// <summary>
+        /// Método para ajustar el sueldo segun la categoria
+        /// </summary>
+        /// <param name="sueldoACalcular"></param>
+        /// <returns></returns>
         private double AjustarSueldo(double sueldoACalcular)
         {
             double sueldo = sueldoACalcular;
